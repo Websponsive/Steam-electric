@@ -14,7 +14,7 @@
 
     --f-family-josefin:'Josefin Sans', sans-serif;
     --f-family-ubuntu: 'Ubuntu', sans-serif;
-    
+     
     --bg-color-green: #50f1ae;
     --bg-color-pine-green: hsl(175, 98%, 30%);
     --bg-color-blue-900: hsl(226, 61%, 14%);
@@ -86,9 +86,9 @@
 html, body {
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
     overflow: hidden;
 }
+
 
 
 /* Navbar Styles */
@@ -289,9 +289,10 @@ html, body {
 // Content styles
 main{
     height: 100vh;
-    // height: 100svh;
+    height: 100svh;
     scroll-snap-type: y mandatory;
     overflow: scroll;
+    scroll-behavior: smooth;
  
     .intro{
         background-color: hsla(226, 61%, 17%, 0.5);
@@ -314,7 +315,13 @@ main{
         scroll-snap-align: center;
         display: grid;
         place-content: center;
-
+        scroll-snap-stop: always;
+        h2, h3{
+            text-align: center;
+        }
+        p{
+            align-self: center;
+        }
         &:nth-child(2n){
             background-color: var(--bg-color-orange-500);
         }
@@ -334,11 +341,23 @@ main{
         }
         .content-section{
             padding: 3rem 1rem 1rem 1rem;
-            gap: 2rem;
+            gap: 1rem;
             .image{
-                justify-self: center;
-                width: 80%;
+                width: 70%;
                 max-height: 100%;
+                justify-self: center;
+            }
+            .t-image{
+                width: 60%;
+                justify-self: center;
+                &:nth-child(1){
+                    display: none;
+                }
+            }
+            .types{
+                @media (max-width: 560px) {
+                    ul{display: none;}
+                }
             }
         }
     }
@@ -354,7 +373,7 @@ main{
             padding: 3rem;
             grid-template-columns: 3fr 1fr;
             gap: 1rem;
-            h3{
+            h3, h2{
                 grid-column: span 2;
             }
             
@@ -363,6 +382,11 @@ main{
                 align-self: center;
                 order: 3;
                 width: 100%;
+            }
+            .t-image{
+                width: 100%;
+                justify-self: center;
+                align-self: center;
             }
         }
     }
@@ -373,7 +397,7 @@ main{
             padding: 10rem;
             gap: 3rem;
             grid-template-columns: 2fr 1fr;
-            p{
+            p, li{
                 font-size: var(--f-size-paragraph);
             }
         }

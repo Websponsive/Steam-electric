@@ -75,7 +75,6 @@
 html, body {
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
   overflow: hidden;
 }
 
@@ -262,8 +261,10 @@ html, body {
 }
 main {
   height: 100vh;
+  height: 100svh;
   scroll-snap-type: y mandatory;
   overflow: scroll;
+  scroll-behavior: smooth;
 }
 main .intro {
   background-color: hsla(226, 61%, 17%, 0.5);
@@ -287,6 +288,13 @@ main .content-section {
   scroll-snap-align: center;
   display: grid;
   place-content: center;
+  scroll-snap-stop: always;
+}
+main .content-section h2, main .content-section h3 {
+  text-align: center;
+}
+main .content-section p {
+  align-self: center;
 }
 main .content-section:nth-child(2n) {
   background-color: var(--bg-color-orange-500);
@@ -303,12 +311,24 @@ main .content-section:nth-child(2n+1) {
   }
   main .content-section {
     padding: 3rem 1rem 1rem 1rem;
-    gap: 2rem;
+    gap: 1rem;
   }
   main .content-section .image {
-    justify-self: center;
-    width: 80%;
+    width: 70%;
     max-height: 100%;
+    justify-self: center;
+  }
+  main .content-section .t-image {
+    width: 60%;
+    justify-self: center;
+  }
+  main .content-section .t-image:nth-child(1) {
+    display: none;
+  }
+}
+@media (max-width: 560px) and (max-width: 560px) {
+  main .content-section .types ul {
+    display: none;
   }
 }
 @media (min-width: 561px) {
@@ -320,7 +340,7 @@ main .content-section:nth-child(2n+1) {
     grid-template-columns: 3fr 1fr;
     gap: 1rem;
   }
-  main .content-section h3 {
+  main .content-section h3, main .content-section h2 {
     grid-column: span 2;
   }
   main .content-section .image {
@@ -329,6 +349,11 @@ main .content-section:nth-child(2n+1) {
     order: 3;
     width: 100%;
   }
+  main .content-section .t-image {
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+  }
 }
 @media (min-width: 1300px) {
   main .content-section {
@@ -336,7 +361,7 @@ main .content-section:nth-child(2n+1) {
     gap: 3rem;
     grid-template-columns: 2fr 1fr;
   }
-  main .content-section p {
+  main .content-section p, main .content-section li {
     font-size: var(--f-size-paragraph);
   }
 }
