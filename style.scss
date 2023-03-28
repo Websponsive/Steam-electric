@@ -269,11 +269,11 @@ html, body {
         }
     }
 }
-@media screen and (min-width: 1300px){
-    .navbar{
-        height: 7rem;
-    }
-}
+// @media screen and (min-width: 1300px){
+//     .navbar{
+//         height: 7rem;
+//     }
+// }
 
 @keyframes navbar-pop {
     from{transform: translateY(-5rem);}
@@ -355,8 +355,11 @@ main{
                 }
             }
             .types{
-                @media (max-width: 560px) {
-                    ul{display: none;}
+                ul{display: none;}
+            }
+            .rules{
+                .hidden{
+                    display: none;
                 }
             }
         }
@@ -384,9 +387,12 @@ main{
                 width: 100%;
             }
             .t-image{
-                width: 100%;
+                width: 70%;
                 justify-self: center;
                 align-self: center;
+            }
+            .rules{
+                grid-column: span 2;
             }
         }
     }
