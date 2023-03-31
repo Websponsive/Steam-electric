@@ -191,7 +191,7 @@ html, body {
     z-index: 999;
   }
   .navbar.nav-visible {
-    height: 380px;
+    height: 320px;
   }
   .navbar.nav-visible .navbar-list .navbar-list-item {
     animation-name: fade-in;
